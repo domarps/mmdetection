@@ -33,7 +33,7 @@ class CustomDataset(Dataset):
     The `ann` field is optional for testing.
     """
 
-    CLASSES = None
+    CLASSES = ('token_1', 'token_2', 'token_3', 'token_5', 'token_10', 'token_36')
 
     def __init__(self,
                  ann_file,
