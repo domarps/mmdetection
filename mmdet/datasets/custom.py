@@ -45,8 +45,8 @@ class CustomDataset(Dataset):
                  proposal_file=None,
                  num_max_proposals=1000,
                  flip_ratio=0,
-                 with_mask=True,
-                 with_crowd=True,
+                 with_mask=False,
+                 with_crowd=False,
                  with_label=True,
                  with_semantic_seg=False,
                  seg_prefix=None,
@@ -59,6 +59,7 @@ class CustomDataset(Dataset):
 
         # load annotations (and proposals)
         self.img_infos = self.load_annotations(ann_file)
+        print('Loaded annotation file ...')
         if proposal_file is not None:
             self.proposals = self.load_proposals(proposal_file)
         else:

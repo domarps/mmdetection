@@ -85,7 +85,7 @@ def get_dataset(data_cfg):
     else:
         ann_files = [data_cfg['ann_file']]
         num_dset = 1
-
+    print('ann_files in get_dataset ....', ann_files)
     if 'proposal_file' in data_cfg.keys():
         if isinstance(data_cfg['proposal_file'], (list, tuple)):
             proposal_files = data_cfg['proposal_file']
@@ -101,6 +101,7 @@ def get_dataset(data_cfg):
         img_prefixes = [data_cfg['img_prefix']] * num_dset
     assert len(img_prefixes) == num_dset
 
+    print('****num datasets****', num_dset)
     dsets = []
     for i in range(num_dset):
         data_info = copy.deepcopy(data_cfg)
