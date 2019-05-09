@@ -92,7 +92,7 @@ data_root = '/home/ubuntu/tp/'
 img_norm_cfg = dict(
     mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
 data = dict(
-    imgs_per_gpu=16,
+    imgs_per_gpu=8,
     workers_per_gpu=2,
     train=dict(
         type=dataset_type,
@@ -147,10 +147,10 @@ log_config = dict(
     ])
 # yapf:enable
 # runtime settings
-total_epochs = 1
+total_epochs = 4
 dist_params = dict(backend='nccl')
 log_level = 'INFO'
-work_dir = './work_dirs/epoch1_tboard_faster_rcnn_r101_fpn_1x'
+work_dir = './work_dirs/epoch1_tboard_bs8_imsz700_faster_rcnn_r101_fpn_1x'
 load_from = None
 resume_from = None
 workflow = [('train', 1)]
