@@ -147,7 +147,7 @@ log_config = dict(
     ])
 # yapf:enable
 # runtime settings
-total_epochs = 1
+total_epochs = 5
 dist_params = dict(backend='nccl')
 log_level = 'INFO'
 work_dir = './work_dirs/epoch4_tboard_bs8_imsz700_faster_rcnn_r101_fpn_1x'
