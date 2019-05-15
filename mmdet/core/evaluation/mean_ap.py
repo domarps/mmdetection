@@ -339,6 +339,8 @@ def print_map_summary(mean_ap, results, dataset=None):
     """
     num_scales = len(results[0]['ap']) if isinstance(results[0]['ap'],
                                                      np.ndarray) else 1
+    
+    num_classes = len(get_classes(dataset) if dataset else len(results)
     recalls = np.zeros((num_scales, num_classes), dtype=np.float32)
     precisions = np.zeros((num_scales, num_classes), dtype=np.float32)
     aps = np.zeros((num_scales, num_classes), dtype=np.float32)
@@ -357,7 +359,6 @@ def print_map_summary(mean_ap, results, dataset=None):
         label_names = get_classes(dataset)
     else:
         label_names = dataset
-    num_classes = len(label_names)
     if not isinstance(mean_ap, list):
         mean_ap = [mean_ap]
     header = ['class', 'gts', 'dets', 'recall', 'precision', 'ap']
